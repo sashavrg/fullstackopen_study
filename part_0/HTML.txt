@@ -1,0 +1,62 @@
+attributes are contained in the opening tag <p class="editor note">My cat is very grumpy."</p>
+
+attributes that set a value always have:
+
+	1. A space between it and the element name
+	2. The attribute name followed by an equal sign
+	3. The attribute value wrapped by quotation marks ""
+
+it's possible to nest elements inside other elements <p>My cat is <strong>very</strong> grumpy.</p>
+
+some elements cannot have content or nested elements; these are called VOID ELEMENTS. one example is the <img> element:
+
+<img src="images/firefox-icon.png" alt="My test image">
+
+
+
+HTML ANATOMY EXAMPLE
+
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="My test image" />
+  </body>
+</html>
+
+
+
+in the body we can use upt to 6 heading elements
+
+<h1>Main title</h1>
+<h2>Top level heading</h2>
+<h3>My subheading</h3>
+<h4>My sub-subheading</h4>
+etc
+
+comments are declared with <!--      -->
+
+paragraph elements are marked as <p>
+
+LISTS
+
+unordered lists are marked as <ul>
+
+ordered lists are marked as <ol>
+
+list elements are put inside an <li> element
+
+LINKS
+
+we can put links inside an <a> element. "a" is for "anchor"
+
+<a href="https://www.mozilla.org/en-US/about/manifesto/">
+
+   Mozilla Manifesto
+
+</a>
+

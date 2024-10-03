@@ -1,0 +1,32 @@
+HTML FORMS
+
+
+
+a web form's HTML is made up of one or more form controls (sometimes called widgets). the controls can be text fields, dropdown boxes, buttons, checkboxes, radio buttons, and are mostly created using the <input> element.
+form controls can also be made specifically to enforce specific formats or values, such as text or integers, and paired with labels.
+
+FORMS UX BEST PRACTICES:
+
+https://www.smashingmagazine.com/2018/08/ux-html5-mobile-form-part-1/
+
+
+
+THE <form> ELEMENT
+
+
+<form action="/my-handling-form-page" method="post">…</form>
+
+
+all attributes of the <form> element are optional, but it's standard practice to always set at least the action and method attributes: 
+
+	action defines the location (URL) where the form's collected data should be sent when submitted
+	
+	method defines which HTTP method to send the data with (usually get or post)
+
+
+
+input element is a void element
+
+textarea isn't
+
+

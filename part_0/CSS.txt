@@ -1,0 +1,65 @@
+in order to apply the CSS to the HTML document, we need to link it in the head:
+
+<link href="styles.style.css" rel"stylesheet" />
+
+each collection of properties is referred to as a ruleset, or sometimes just as a rule. it is composed by the selector (the HTML element name we are referring to), the declaration (the property and the property value):
+
+p {
+  color: red;
+}
+
+
+SELECTING MULTIPLE ELEMENTS:
+
+p,
+li,
+h1 {
+  color: red;
+}
+
+DIFFERENT TYPES OF SELECTORS
+
+	element selector: all HTML elements of the specified type eg: p (selects all <p>)
+
+	ID selector: the element on the page with the specified ID. each ID  eg: #my-id (selects <p id="my-id"> or <a id="my-id">)
+
+	class selector: the elements on the page with the specified class eg: .my-class (selects <p class="my-class"> and <a class="my-class">)
+
+	attribute selector: the elements on the page with the specified attribute eg: img[src] (selects <img src="myimage.png"> but not <img>)
+
+	pseudo-class selector: the specified element(s), but only when in the specified state eg: a:hover (selects <a> but only when the mouse pointer is hovering over the link)
+
+
+and many more.
+
+
+FONTS AND TEXT
+
+
+to use fonts from google fonts, we first need to link the google fonts output in the HTML head:
+
+<link
+  href="https://fonts.googleapis.com/css?family=Open+Sans"
+  rel="stylesheet" />
+
+once we have this, we can use the font family in CSS rules:
+
+html {
+  font-size: 10px; /*the base font size is 10px high*/
+  font-family: "Open Sans", sans-serif; /*this should be the rest of the output from google fonts*/
+}
+
+
+
+BOXES
+
+padding: the space around the content
+
+border: the solid line that is just outside the padding
+
+margin: the space outside of the border
+
+when setting two values on a property like margin or padding, the first value affects the top and bottom size, while the second affects the left and right size. when using four values the order is: top, right, bottom, left (clockwise).
+
+
+
