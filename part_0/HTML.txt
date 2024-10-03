@@ -8,9 +8,11 @@ attributes that set a value always have:
 
 it's possible to nest elements inside other elements <p>My cat is <strong>very</strong> grumpy.</p>
 
+VOID ELEMENTS
+
 some elements cannot have content or nested elements; these are called VOID ELEMENTS. one example is the <img> element:
 
-<img src="images/firefox-icon.png" alt="My test image">
+<img src="images/firefox-icon.png" alt="My test image" />
 
 
 
