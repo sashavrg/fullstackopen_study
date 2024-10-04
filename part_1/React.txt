@@ -70,5 +70,25 @@ Naturally, a component can be reused multiple times.
 		PROPS: passing data to components
 
 
+it is possible to transfer data between components by using props. the function receiving the props needs to have "props" as a parameter eg
+
+const Hello = (props) => {}
+
+
+props are defined as follows: 
+
+const App = () => {
+  return (
+    <div>
+      <h1>Greetings</h1>
+
+      <Hello name='George' />
+      <Hello name='Daisy' />
+    </div>
+  )
+}
+
+
+the values of the props can be hard-coded strings or the results of JS expressions; naturally, if the value is obtained through a JavaScript expression, it needs be wrapped between curly braces {}
 
 
