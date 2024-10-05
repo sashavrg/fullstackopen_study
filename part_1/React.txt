@@ -92,3 +92,5 @@ const App = () => {
 the values of the props can be hard-coded strings or the results of JS expressions; naturally, if the value is obtained through a JavaScript expression, it needs be wrapped between curly braces {}
 
 
+It is not necessary to stipulate the wrapping tag in the App component if we have already stipulated the root. 
+
