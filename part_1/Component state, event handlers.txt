@@ -1,0 +1,57 @@
+				Component state, event handlers
+
+
+
+		COMPONENT HELPER FUNCTIONS
+
+
+we can add to a component one or more functions that are called when the component is rendered. what we're doing here is nesting a function inside of another function which is defining the behavior of the component. while this is pretty cumbersome in Java, it's a commonly-used technique in JavaScript.
+
+
+		DESTRUCTURING
+
+
+in our code before we had to reference the data passed to our component as props.name and props.age; since props is an object
+
+	props = {
+	  name: 'Shoto',
+	  age: 3,
+        }
+
+we can streamline  our component by assigning the two properties of the object as variables and then use them in our code.
+we can also use a more compact syntax for the arrow function:
+
+	const bornYear = () => {
+    const yearNow = new Date().getFullYear()
+    return yearNow - props.age
+
+
+to
+
+	const bornYear = () => new Date().getFullYear() - age
+
+
+this because when the arrow function consists of a single expression, the function body does not need to be written inside of curly braces; with this version the function simply returns the result of the expression.
+
+we can also declare at once several constants by using the {} syntax and declaring the names of the constants in the braces
+
+	const Hello = (props) => {
+	  const { name, age } = props
+
+we can further destructure the props object assigning the values of the properties directly to variables, passing the component function as a parameter:
+
+	const Hello ({ name, age }) => {
+
+
+
+		PAGE RE-RENDERING
+
+what if we wanted to have the page change dynamically after the original rendering? we can work on the rendering part in main.jsx by wrapping it up in a function (in this case it's a function called refresh). we can make it a little more interesting by using setInterval in order to refresh several times.  
+
+making repeated calls to the render method is not a recommended way to re-render components, but we'll soon introduce a better method.
+
+
+		STATEFUL COMPONENT
+
+
+all the components we have created until now have been simple, meaning that they have not contained any state that could change during the life cycle of the component. 
