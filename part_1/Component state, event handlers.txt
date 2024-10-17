@@ -54,4 +54,68 @@ making repeated calls to the render method is not a recommended way to re-render
 		STATEFUL COMPONENT
 
 
-all the components we have created until now have been simple, meaning that they have not contained any state that could change during the life cycle of the component. 
+all the components we have created until now have been simple, meaning that they have not contained any state that could change during the life cycle of the component. we're now going to add a state to our app component.
+
+
+import { useState } from 'react'
+
+const App = () => {
+
+  const [ counter, setCounter ] = useState(0)
+
+
+  setTimeout(
+    () => setCounter(counter + 1),
+    1000
+  )
+
+  return (
+    <div>{counter}</div>
+  )
+}
+
+export default App
+
+
+
+
+
+the first row is used to import the useState function. the function body that defines the component's behavior starts with a function call: const [ counter, setCounter ] = useState(0)
+
+this function call adds state to the components and sets it to 0. the function returns an array of two items,assigned to the constants 'counter' and 'setCounter'. the counter variable is assigned to the original, initialized value of the state, while to setCounter is assigned a function that will change that state. The application then calls the setTimeout function and passes it two parameters: the function to increment the counter state and a timeout of 1000 ms. 
+
+
+
+
+		EVENT HANDLING
+
+now let's change the application so that the counter only ticks when the user clicks a button. for this we are going to use a m,ouse event (can also be triggerecd by keyboard or touch screen despite the name). in react, registering an event handler function to the click event happens like this: 
+
+
+
+const App = () => {
+  const [ counter, setCounter ] = useState(0)
+
+
+  const handleClick = () => {
+    console.log('clicked')
+  }
+
+  return (
+    <div>
+      <div>{counter}</div>
+
+      <button onClick={handleClick}>
+        plus
+      </button>
+    </div>
+
+
+
+
+
+
+
+  )
+}
+
