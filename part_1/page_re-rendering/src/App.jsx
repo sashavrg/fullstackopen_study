@@ -48,7 +48,7 @@ const App = () => {
     setTotal(0)
   }
   const handleresetAllClicks = () => setAll([])
-  console.log(allClicks)
+  //console.log(allClicks)
 
 
   return (
