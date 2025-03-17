@@ -7,6 +7,15 @@ const app = express()
 
 const password = process.argv[2]
 
+const errorHandling = (error, request, response, next) => {
+  console.error(error.message)
+
+  if (error.name === 'CastError') {
+    return response.status(400).send({message: 'malformatted id'})
+  } 
+  next(error)
+}
+
 //middleware
 app.use(express.static('dist'))
 app.use(express.json())
@@ -23,7 +32,7 @@ app.get('/api/notes', (request, response) => {
   })
 })
 
-app.get ('/api/notes/:id', (request, response) => {
+app.get ('/api/notes/:id', (request, response, next) => {
   Note.findById(request.params.id)
   .then(note => {
     if (note) {
@@ -34,8 +43,7 @@ app.get ('/api/notes/:id', (request, response) => {
     }
   })
   .catch(error => {
-    console.log(error)
-    response.status(400).send({error: 'malformatted id'})
+    next(error)
   })
 })
 
@@ -75,6 +83,8 @@ app.delete('/api/notes/:id', (request, response) => {
 
   response.status(204).end()
 })
+
+app.use(errorHandling)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
