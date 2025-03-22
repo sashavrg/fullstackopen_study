@@ -26,24 +26,24 @@ app.get('/', (request, response) => {
 app.get('/api/notes', (request, response) => {
   Note.find({})
     .then(notes => {
-    response.json(notes)
-    console.log(notes)
-  })
+      response.json(notes)
+      console.log(notes)
+    })
 })
 
 app.get ('/api/notes/:id', (request, response, next) => {
   Note.findById(request.params.id)
-  .then(note => {
-    if (note) {
-      response.json(note)
-    } else {
-      response.statusMessage = "Note not found"
-      response.status(404).end()
-    }
-  })
-  .catch(error => {
-    next(error)
-  })
+    .then(note => {
+      if (note) {
+        response.json(note)
+      } else {
+        response.statusMessage = 'Note not found'
+        response.status(404).end()
+      }
+    })
+    .catch(error => {
+      next(error)
+    })
 })
 
 app.post ('/api/notes/', (request, response, next) => {
@@ -64,28 +64,28 @@ app.post ('/api/notes/', (request, response, next) => {
     .then(savedNote => {
       response.json(savedNote)
       console.log(savedNote)
-  })
+    })
     .catch(error => next(error))
 })
 
 app.delete('/api/notes/:id', (request, response, next) => {
   Note.findByIdAndDelete(request.params.id)
-  .then(() => {
-    response.status(204).end()
-  })
-  .catch(error => next(error))
+    .then(() => {
+      response.status(204).end()
+    })
+    .catch(error => next(error))
 })
 
 app.put('/api/notes/:id', (request, response, next) => {
   const body = request.body
-  
+
   const note = {
     content: body.content,
     important: body.important,
   }
 
-  Note.findByIdAndUpdate(request.params.id, note, {new: true})
-    .then(updateNote => { 
+  Note.findByIdAndUpdate(request.params.id, note, { new: true })
+    .then(updateNote => {
       if (updateNote) {
         response.json(updateNote)
       } else {
@@ -99,16 +99,16 @@ const errorHandler = (error, request, response, next) => {
   console.error(error.message)
 
   if (error.name === 'CastError') {
-    return response.status(400).send({message: 'malformatted id'})
+    return response.status(400).send({ message: 'malformatted id' })
   } else if (error.name === 'ValidationError') {
-    return response.status(400).json({error: error.message})
+    return response.status(400).json({ error: error.message })
   }
 
   next(error)
 }
 
 const unknownEndpoint = (request, response) => {
-  response.status(404).send({error: 'unknown endpoint'})
+  response.status(404).send({ error: 'unknown endpoint' })
 }
 
 app.use(unknownEndpoint)
@@ -116,5 +116,5 @@ app.use(errorHandler)
 
 const PORT = process.env.PORT
 app.listen(PORT, () => {
-console.log(`server running on port ${PORT}`)
+  console.log(`server running on port ${PORT}`)
 })
